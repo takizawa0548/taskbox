@@ -10,6 +10,7 @@ import '../src/index.css';
 //👇 Configures Storybook to log the actions( onArchiveTask and onPinTask ) in the UI.
 /** @type { import('@storybook/react').Preview } */
 const preview = {
+  controls: { expanded: true },
   parameters: {
     controls: {
       matchers: {
@@ -18,7 +19,16 @@ const preview = {
       },
     },
   },
- loaders: [mswLoader],
-};
-
-export default preview;
+  docs: { 
+    description: {
+      component: 'Example of using tags to filter stories in Storybook.',
+    },
+  },
+  tags: {
+    filters: {
+      important: '重要なストーリー',
+      button: 'ボタンに関連するストーリー',
+    },
+  }
+, loaders: [mswLoader],
+}

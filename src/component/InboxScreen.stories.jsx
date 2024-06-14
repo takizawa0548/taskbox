@@ -9,12 +9,13 @@ import { MockedState } from './TaskList.stories';
 
 import { Provider } from 'react-redux';
 
- import {
+import {
   fireEvent,
   waitFor,
   within,
   waitForElementToBeRemoved
- } from '@storybook/test';
+} from '@storybook/test';
+import { userEvent } from '@storybook/testing-library';
 
 export default {
   component: InboxScreen,
@@ -42,7 +43,7 @@ export const Default = {
      // Simulates pinning the first task
      await fireEvent.click(canvas.getByLabelText('pinTask-1'));
      // Simulates pinning the third task
-     await fireEvent.click(canvas.getByLabelText('pinTask-3'));
+     await userEvent.click(canvas.getByLabelText('pinTask-3'));
    });
  },
 };

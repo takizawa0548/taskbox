@@ -49,9 +49,12 @@ const Mockstore = ({ taskboxState, children }) => (
 
 export default {
   component: TaskList,
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
   title: 'TaskList',
-  decorators: [(story) => <div style={{ margin: '3rem' }}>{story()}</div>],
-  tags: ['autodocs'],
+  decorators: [(story) => <div style={{ margin: '1rem' }}>{story()}</div>],
+  tags: ['autodocs','important'],
   excludeStories: /.*MockedState$/,
 };
 
@@ -59,6 +62,7 @@ export const Default = {
   decorators: [
     (story) => <Mockstore taskboxState={MockedState}>{story()}</Mockstore>,
   ],
+  tags: ['important'],
 };
 
 export const WithPinnedTasks = {
